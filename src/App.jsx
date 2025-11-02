@@ -151,13 +151,13 @@ export default function FlipBook() {
     if (pageIndex < 0 || pageIndex >= pages.length || !pages[pageIndex]) return null;
     
     return (
-      <div className="p-4 sm:p-6 md:p-8 lg:p-12 w-full h-full flex flex-col">
-        <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-serif mb-3 sm:mb-4 md:mb-6 text-gray-900 border-b-2 border-gray-300 pb-2 sm:pb-3">
+      <div className="p-4 sm:p-6 md:p-8 lg:p-12 w-full h-full flex flex-col overflow-y-auto">
+        <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl font-serif mb-2 sm:mb-3 md:mb-4 text-gray-900 border-b-2 border-gray-300 pb-2 flex-shrink-0">
           {pages[pageIndex].title}
         </h2>
-        <div className="flex-1 flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 mb-3 sm:mb-4 md:mb-6 rounded border-2 border-dashed border-gray-300">
+        <div className="flex-shrink-0 flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 mb-2 sm:mb-3 md:mb-4 rounded border-2 border-dashed border-gray-300 h-32 sm:h-40 md:h-48 lg:h-56">
           <div className="text-center">
-            <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-2 block">📷</span>
+            <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-1 block">📷</span>
             <span className="text-xs sm:text-sm text-gray-500">Image Placeholder</span>
             {/* To add real images, replace the above with:
             <img src="/path/to/image.jpg" alt="Description" className="w-full h-full object-cover rounded" />
@@ -169,10 +169,10 @@ export default function FlipBook() {
             */}
           </div>
         </div>
-        <p className="text-xs sm:text-sm md:text-base text-gray-800 leading-relaxed sm:leading-loose text-justify font-serif">
+        <p className="text-xs sm:text-sm md:text-base text-gray-800 leading-relaxed sm:leading-loose text-justify font-serif flex-grow">
           {pages[pageIndex].content}
         </p>
-        <div className="mt-3 sm:mt-4 md:mt-6 text-xs sm:text-sm text-gray-400 text-center font-serif">
+        <div className="mt-2 sm:mt-3 md:mt-4 text-xs sm:text-sm text-gray-400 text-center font-serif flex-shrink-0">
           — {pageIndex + 1} —
         </div>
       </div>
@@ -193,9 +193,9 @@ export default function FlipBook() {
             className="relative bg-gradient-to-br from-amber-50 to-amber-100 shadow-2xl"
             style={{
               width: 'min(45vw, 450px)',
-              height: 'min(60vw, 600px)',
+              height: 'min(75vh, 650px)',
               maxWidth: '450px',
-              maxHeight: '600px',
+              maxHeight: '650px',
               transformStyle: 'preserve-3d',
               transform: 'rotateY(0deg)',
               boxShadow: '-5px 5px 20px rgba(0,0,0,0.3), inset 3px 0 10px rgba(0,0,0,0.1)',
@@ -229,8 +229,10 @@ export default function FlipBook() {
               key={currentPage}
               className="absolute left-0 top-0 bg-gradient-to-br from-amber-50 to-amber-100"
               style={{
-                width: '100%',
-                height: '100%',
+                width: 'min(45vw, 450px)',
+                height: 'min(75vh, 650px)',
+                maxWidth: '450px',
+                maxHeight: '650px',
                 transformStyle: 'preserve-3d',
                 transformOrigin: 'left center',
                 transition: 'transform 1s cubic-bezier(0.645, 0.045, 0.355, 1)',
@@ -269,8 +271,10 @@ export default function FlipBook() {
             <div
               className="absolute left-0 top-0 bg-gradient-to-br from-amber-50 to-amber-100 shadow-2xl"
               style={{
-                width: '100%',
-                height: '100%',
+                width: 'min(45vw, 450px)',
+                height: 'min(75vh, 650px)',
+                maxWidth: '450px',
+                maxHeight: '650px',
                 boxShadow: '5px 5px 20px rgba(0,0,0,0.3), inset -3px 0 10px rgba(0,0,0,0.1)',
                 zIndex: 10,
               }}
